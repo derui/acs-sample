@@ -1,0 +1,20 @@
+version: '2'
+services:
+  registry:
+    restart: always
+    image: registry:2
+    ports:
+      - "5000:5000"
+    environment:
+      REGISTRY_STORAGE_AZURE_ACCOUNTKEY: ${AZURE_ACCOUNT_KEY}
+    volumes:
+       - /vagrant/docker-registry-config.yml:/etc/docker/registry/config.yml
+
+  swarm-registry:
+    restart: always
+    image: swarm-registry
+    ports:
+      - "5000:5000"
+    environment:
+      REGISTRY_STORAGE_AZURE_ACCOUNTKEY: ${AZURE_ACCOUNT_KEY}
+

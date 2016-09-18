@@ -1,0 +1,29 @@
+version: 0.1
+log:
+  level: info
+  formatter: text
+  fields:
+    service: registry
+    environment: staging
+storage:
+  azure:
+    accountname: deruiimages
+    container: images
+  delete:
+    enabled: true
+  cache:
+    blobdescriptor: inmemory
+  maintenance:
+    uploadpurging:
+      enabled: true
+      age: 168h
+      interval: 24h
+      dryrun: false
+    readonly:
+      enabled: false
+http:
+  addr: :5000
+  secret: asecretforlocaldevelopment
+  relativeurls: false
+  headers:
+    X-Content-Type-Options: [nosniff]
