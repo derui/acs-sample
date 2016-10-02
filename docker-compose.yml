@@ -12,7 +12,7 @@ services:
 
   swarm-registry:
     restart: always
-    image: swarm-registry
+    image: localhost:5000/swarm-registry
     ports:
       - "5000:5000"
     environment:
