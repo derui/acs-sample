@@ -21,5 +21,5 @@ deployment:
       - sudo docker build -t "localhost:5000/flask:$CIRCLE_SHA1" .
       - sudo docker push "localhost:5000/flask:$CIRCLE_SHA1"
       - sudo docker run -v `pwd`:/home --rm microsoft/azure-cli sh /home/dump-private-key.sh
-      - sudo -u root -E sh acs-deploy.sh
+      - sudo -E sh acs-deploy.sh
 
