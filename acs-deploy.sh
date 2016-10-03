@@ -1,5 +1,6 @@
 #!/bih/sh
 
+ssh-keygen -p -P "" -N "" `pwd`/azure-acs-private
 ssh -L 2375:localhost:2375 -f -o "PasswordAuthentication no" -o "StrictHostKeyChecking no" -N derui@samplemgmt.japaneast.cloudapp.azure.com -p 2200 -i `pwd`/azure-acs-private
 
 export DOCKER_HOST=":2375"
