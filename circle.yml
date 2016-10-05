@@ -18,6 +18,7 @@ deployment:
   staging:
     branch: master
     commands:
+      - sudo docker build -t "swarm-registry" .
       - sudo docker build -t "localhost:5000/flask:$CIRCLE_SHA1" .
       - sudo docker push "localhost:5000/flask:$CIRCLE_SHA1"
       - sudo docker run -e ACS_SP_PASSWORD=$ACS_SP_PASSWORD -v `pwd`:/home --rm microsoft/azure-cli sh /home/dump-private-key.sh
