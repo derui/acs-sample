@@ -4,7 +4,7 @@ ssh -L 2375:localhost:2375 -f -o "StrictHostKeyChecking no" -N derui@samplemgmt.
 
 export DOCKER_HOST=":2375"
 
-if [ "`docker ps -q | grep swarmregistry | wc -l`" != "1" ];
+if [ "`docker ps -q | grep swarmregistry | wc -l`" != "1" ]; then
    docker run -d -p 5000:5000 --name swarmregistry -e "REGISTRY_STORAGE_AZURE_ACCOUNTKEY=$AZURE_ACCOUNT_KEY" swarm-registry
 fi
 docker rm -f api
